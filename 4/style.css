@@ -1,0 +1,207 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    padding: 7%;
+}
+
+img{
+    object-fit: contain;
+}
+
+:root{
+    --md: 960px;
+    --fc: #000099;
+    --afc: #CC0033;
+}
+
+.container{
+    border-radius: 10px;
+    text-align: justify;
+}
+
+
+.container:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+}
+
+.container:after {
+	width: 100%;
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;
+	content: '';
+	display: inline-block;
+}
+
+.container > div {
+    display: inline-block;
+    padding: 16px;
+    width: 350px;
+}
+
+.product_container__description{
+    width: 100%;
+    height: 150px;
+    overflow-y: hidden;
+    word-break: normal;
+}
+
+
+.product__container{
+    border-radius: 10px;
+    margin-top: 32px;
+    transition: .3s;
+}
+
+.product__container:hover{
+    transition: .3s;
+    box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+    -webkit-box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+}
+
+.product__container > *{
+    display: block;
+    vertical-align: top;
+}
+
+
+
+.product_sellinfo__title{
+    transition: .3s;
+    font: 20px sans-serif;
+    margin-bottom: 0;
+    color: var(--fc);
+    cursor: pointer;
+    text-decoration: underline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product_sellinfo__title:hover{
+    transition: .3s;
+    color: var(--afc);
+}
+
+
+.rate {
+    display: inline-block;
+    border: 0;
+}
+.rate > input {
+    display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+    float: right;
+    /* color: gray; */
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    content: "\f005 ";
+}
+.rate .half:before {
+    content: "\f089 ";
+    position: absolute;
+    padding-right: 0;
+}
+
+.rate > input:checked ~ label { color: #FFB300;  }
+
+
+
+
+.product_sellinfo__breadcrumbs{
+    color: #332f2c;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    opacity: .5;
+}
+
+.product_sellinfo__breadcrumbs > span{
+    text-decoration: underline;
+
+}
+
+.product_sellinfo__rating{
+    /* height: 15px;
+    margin-bottom: 8px; */
+}
+
+.product_container__image{
+    width: 100%;
+}
+
+.product_container__image:hover{
+    opacity: .7;
+}
+
+.product_sellinfo__price{
+    font: bold 20px/34px sans-serif;
+    color: #990033;
+}
+
+.product_sellinfo__price > span{
+    font: normal 15px sans-serif;
+    text-decoration: line-through;
+    color: black;
+}
+
+
+input[name='display']{
+    display: none;
+}
+
+input[name='display'] + label > img
+{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+input[name='display']:checked + label > img {
+    box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+    -webkit-box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow:0px 0px 16px 0px rgba(0,0,0,0.37);
+}
+
+
+input[id='cell']:checked ~ div  {
+    display: block;
+    width: 100%;
+}
+
+input[id='cell']:checked ~ div > .product__container {
+    display: block;
+    width: 100%;
+}
+
+input[id='cell']:checked ~ div > .product__container > * {
+    display: inline-block;
+}
+
+input[id='cell']:checked ~ div > .product__container > .product_container__image {
+    width: 25%;
+}
+
+input[id='cell']:checked ~ div > .product__container > .product_sellinfo {
+    width: 41%;
+    padding: 0 3%;
+}
+
+input[id='cell']:checked ~ div > .product__container > .product_container__description{
+    width: 25%;
+}
