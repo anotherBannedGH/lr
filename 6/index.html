@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ЛР-6</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+
+
+
+<body>
+    <div id='main' class="shadow-big">
+
+      <div class='content' >
+        <div class='leftBlock' >
+          <label for="cat0">Все</label>
+          <label for="cat1">Лабрадор</label>
+          <label for="cat2">Швейцарская</label>
+          <label for="cat3">Ретривер</label>
+        </div>
+
+        <div class='middleBlock' >
+          <input  type='radio' id='cat0' name='cat' style='--all: 1' value='0' />
+          <input checked type='radio' id='cat1' name='cat' style='--iCat: 1' value='1' />
+          <input type='radio' id='cat2' name='cat' style='--iCat: 2' value='2' />
+          <input type='radio' id='cat3' name='cat' style='--iCat: 3' value='3' />
+
+          <div class='middleBlock__goods' >
+              <img style='--info:Хаски, 3 года; --cat: 1 ' id='5' data-category='1' src="https://source.unsplash.com/250x150/?husky" />
+              <img src="https://source.unsplash.com/500x150/?dogs" />
+              <img src="https://source.unsplash.com/250x150/?retriever" />
+              <img src="https://source.unsplash.com/249x150/?husky" />
+              <img src="https://source.unsplash.com/250x150/?dogs" />
+              <img src="https://source.unsplash.com/500x150/?retriever" />
+              <img src="https://source.unsplash.com/250x150/?husky" />
+              <img src="https://source.unsplash.com/750x150/?samoyed" />
+              <img src="https://source.unsplash.com/250x150/?husky" />
+          </div>
+
+        </div>
+
+
+        <div class='rightBlock'>
+
+          <div class='rightBlock__rating' >
+            <div class='rightBlock__raiting--title' >
+              Рейтинг
+            </div>
+
+            <label for='sort'>
+                По убыванию
+            </label>
+            <input type='checkbox' id='sort' name='sort' value='true' />
+
+            <div class="rightBlock__raiting--barWrapper" >
+              <div class='rightBlock__raiting--bar rating-6' style="--category: 'Лабрадор'; --rating: '5';"></div>
+              <div class='rightBlock__raiting--bar rating-2' style="--category: 'Ретривер'; --rating: '2';"></div>
+              <div class='rightBlock__raiting--bar rating-10' style="--category: 'Швейцарская'; --rating: '10';"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        
+      </footer>
+
+
+      </div>
+
+</body>
+</html>
