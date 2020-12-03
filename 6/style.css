@@ -78,7 +78,6 @@ input[type='radio']{
   display: none;
 }
 
-
 img{
   max-height: 150px;
   width: 33%;
@@ -148,7 +147,6 @@ img{
   width: 23%;
   align-self: flex-start;
 }
-
 
 .middleBlock__goods{
   display: flex;
