@@ -1,5 +1,17 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(bg.png);
+    min-height: 90vh;
+    height: 100%;
+}
+
+
 .canvas {
     position: relative;
+
+    box-shadow: 0 0 20px rgba(0,0,0,.9);
     
     width: 500px;
     height: 380px;
@@ -206,6 +218,10 @@
     background: #fff;
 }
 
+.cloud:nth-of-type(2n){
+    transform: scale(1,-1) !important;
+}
+
 .cloud:before,
 .cloud:after {
     position: absolute;
@@ -232,18 +248,24 @@
 
 .cloud-1 {
     top: 10px;
+    left: 0;
+    animation: fly-far 80s infinite linear;
+    transition: .1s;
 }
 
 .cloud-2 {
     top: 50px;
+    animation: fly-midfar 60s infinite linear;
 }
 
 .cloud-3 {
     top: 100px;
+    animation: fly-midclose 40s infinite linear;
 }
 
 .cloud-4 {
     top: 170px;
+    animation: fly-close 25s infinite linear;
 }
 
 .sea {
@@ -251,6 +273,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    
     
     height: 40px;
     
@@ -269,4 +292,25 @@
     content: '';
     
     background: #1d7fbb;
+}
+
+
+@keyframes fly-far{
+    from {transform: translate3d(-482px, -226px, -1300px) scale(-1,1);}
+    to {transform: translate3d(890px, -226px, -1300px) scale(-1,1);}
+}
+
+@keyframes fly-midfar{
+    from {transform: translate3d(-482px, -126px, -900px);}
+    to {transform: translate3d(950px, -126px, -900px);}
+}
+
+@keyframes fly-midclose{
+    from {transform: translate3d(-482px, 0px, -700px) scale(-1,1);}
+    to {transform: translate3d(950px, 0px, -700px) scale(-1,1);}
+}
+
+@keyframes fly-close{
+    from {transform: translate3d(-482px, 50px, -450px);}
+    to {transform: translate3d(950px, 50px, -450px);}
 }
