@@ -32,6 +32,8 @@ body{
     
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: duringDay 120s linear infinite;
 }
 
 /*TODO
@@ -84,6 +86,8 @@ body{
     
     width: 100px;
     height: 36px;
+
+    animation: sail 80s infinite linear;
 }
 
 .ship_smokestack {
@@ -123,22 +127,28 @@ body{
 .smoke-1 {
     top: -25px;
     right: 44px;
+
+    animation: earlySmoke 8s linear infinite;
 }
 
 .smoke-2 {
     top: -25px;
     right: 42px;
+
+    animation: laterSmoke 8s linear infinite;
 }
 
 .smoke-3 {
     top: -25px;
     right: 49px;
+
+    animation: midSmoke 3s linear infinite;
 }
 
 .sun {
     position: absolute;
-    top: 30px;
-    right: 50%;
+    top: 100%;
+    right: 41%;
     
     width: 80px;
     height: 80px;
@@ -146,6 +156,8 @@ body{
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: aroundSun 120s linear infinite;
 }
 
 .sun-wrapper {
@@ -168,42 +180,58 @@ body{
     
     border: solid #ffcf11;
     border-width: 10px 0 10px 0;
+
+    animation: rayRotate 10s linear infinite;
+}
+
+.sin div:nth-child(1){
+    --deg: 0deg;
+    transform: rotate(0deg);
 }
 
 .sun div:nth-child(2) {
+    --deg: 18deg;
     transform: rotate(18deg);
 }
 
 .sun div:nth-child(3) {
+    --deg: 36deg;
     transform: rotate(36deg);
 }
 
 .sun div:nth-child(4) {
+    --deg: 54deg;
     transform: rotate(54deg);
 }
 
 .sun div:nth-child(5) {
+    --deg: 72deg;
     transform: rotate(72deg);
 }
 
 .sun div:nth-child(6) {
+    --deg: 90deg;
     transform: rotate(90deg);
 }
 
 .sun div:nth-child(7) {
-    transform: rotate(-18deg);
+    --deg: 108deg;
+    transform: rotate(108deg);
 }
 
 .sun div:nth-child(8) {
-    transform: rotate(-36deg);
+    --deg: 126deg;
+    transform: rotate(126deg);
 }
 
 .sun div:nth-child(9) {
-    transform: rotate(-54deg);
+    --deg: 144deg;
+    transform: rotate(144deg);
 }
 
 .sun div:nth-child(10) {
-    transform: rotate(-72deg);
+    --deg: 162deg;
+    transform: rotate(162deg);
 }
 
 .cloud {
@@ -313,4 +341,88 @@ body{
 @keyframes fly-close{
     from {transform: translate3d(-482px, 50px, -450px);}
     to {transform: translate3d(950px, 50px, -450px);}
+}
+
+@keyframes sail {
+    from{transform: translateX(100px)}
+    to{transform: translateX(-600px);}
+}
+
+@keyframes aroundSun{
+    0%{transform: rotate(0deg) translateX(-330px) rotate(0deg)}
+    100%{transform: rotate(360deg) translateX(-330px) rotate(360deg)}
+}
+
+@keyframes duringDay{
+    0%{
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }    
+    25%{
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    49%{
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    65%{
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100%{
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+}
+
+@keyframes earlySmoke {
+    50%{
+        transform: translateY(-20px) scale(2);
+        opacity: 0;
+    }
+    100%{
+        opacity: 0
+    }
+}
+
+@keyframes laterSmoke {
+    0%{
+        opacity: 0
+    }
+    50%{
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    51%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-20px) scale(2);
+    }
+}
+
+@keyframes rayRotate{
+    from {transform: rotate( var(--deg,0deg) );}
+    to {transform: rotate( calc(360deg + var(--deg,0deg)) );}
+}
+
+@keyframes midSmoke{
+    0%{
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    30%{
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    31%{
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-20px) scale(1.5);
+        opacity: 0;
+    }
 }
