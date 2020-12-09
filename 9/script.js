@@ -12,27 +12,52 @@ console.log(normalizeHashtags(['Asc', 'asc', 'SqwsX', 'sqwsx']), normalizeHashta
 
 window.book = {}
 
-function phoneBook (command)  {
+function phoneBook(command) {
 
     const [com, arg1, arg2] = command.split(' ')
 
     let data = {
+
         'ADD': function (name, phones) {
             let list = this.book?.[name]
             this.book[name] = [].concat(phones.split(',') || [], list || [])
         },
+
         'REMOVE_PHONE': function (phone) {
-            Object.entries(this.book).map((value) => {
-                if (value.includes(phone)) console.log('true')
-                value.filter((i) => i != phone)
-            })
-        },
-        'SHOW': function () {
-            return Object.entries(this.book).map(([key, value]) => {
-                if (value.length) {
-                    return `${key}: ${value.join(',')}`
+
+            let found = false
+            
+            Object.keys(this.book).forEach((key) => {
+
+                let value = this.book[key]
+
+                if (value && value.length) {
+                    let prevLength = value.length
+
+                    value = value.filter((item) => {
+                        return item !== phone
+                    })
+
+                    this.book[key] = value
+
+                    if (prevLength != value.length) {
+                        found = true
+                        return;
+                    }
                 }
-            }).join('\n')
+            })
+
+            console.log(found)
+        },
+
+        'SHOW': function () {
+            console.log(
+                Object.entries(this.book).map(([key, value]) => {
+                    if (value.length) {
+                        return `${key}: ${value.join(',')}`
+                    }
+                }).join('\n')
+            )
         }
     }
 
@@ -41,4 +66,11 @@ function phoneBook (command)  {
     return data?.[com]?.call(window, arg1 || '', arg2 || '')
 }
 
-console.log(phoneBook('ADD Ivan 1'), phoneBook('ADD Ivan 2'), phoneBook('ADD Ivan 3'), phoneBook('ADD Sergey 3'), phoneBook('REMOVE_PHONE 3'), phoneBook('SHOW'))
+phoneBook('ADD Ivan 1')
+phoneBook('ADD Ivan 2')
+phoneBook('ADD Ivan 3')
+phoneBook('ADD Sergey 4')
+phoneBook('REMOVE_PHONE 5')
+phoneBook('SHOW')
+
+delete this.book
