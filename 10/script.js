@@ -8,7 +8,7 @@ const timeType = Object.freeze({
 
 
 const date = function (date) {
-    const o = {
+    const o = Object.seal({
 
         _value: null,
 
@@ -60,7 +60,7 @@ const date = function (date) {
             let dates = year + "-" + month + "-" + day + " " + time;
             return dates;
         },
-    };
+    });
     return o.constr(date);
 };
 
@@ -72,3 +72,4 @@ let time = date('2020-10-20 13:10')
 
 
 console.log(time.value)
+
